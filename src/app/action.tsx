@@ -16,11 +16,9 @@ export async function fetchAnimes(page: number) {
 }
 export async function fetchAnime(id: number) {
   try {
-    const anime = await axios.get(`https://shikimori.one/api/animes/:${id}`);
-    const video = await axios.get(
-      `https://shikimori.one/api/animes/:anime_id/videos`
-    );
-    const data = { anime: anime.data, video: video.data };
+    const anime = await axios.get(`https://shikimori.one/api/animes/${id}`);
+   
+    const data =  anime.data
     return data;
   } catch (error) {
     console.error("Error fetching anime: ", error);
